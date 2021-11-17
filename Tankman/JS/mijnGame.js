@@ -1,26 +1,17 @@
+let bg;
+
+function preload() {
+  bg = loadImage ("images/background/achtergrond.png");
+}
+
 function setup() {
-  canvas = createCanvas(400,400);
+  //canvas = createCanvas(1920,969);
+  canvas = createCanvas(961,969);
   background('grey');
   canvas.parent('processing');
   noLoop();
 }
 
 function draw() {
-  // groene cirkel zonder rand
-  
-  noStroke();
-  fill('green');
-  ellipse(200,200,375);
-
-  // Witte cirkel
-  
-  fill('white');
-  ellipse(200,200,300);
-  
-  // witte rechthoek met rode rand
-  
-  stroke('green');
-  fill('white');
-  strokeWeight(10);
-  rect(100,100,200,200);  
+  background(bg);
 }
