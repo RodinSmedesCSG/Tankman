@@ -1,6 +1,6 @@
 function setup() {
     canvas = createCanvas(400,400);
-    background('grey');
+    background('red');
     canvas.parent('processing');
     noLoop();
   }
@@ -24,4 +24,3 @@ function setup() {
     strokeWeight(10);
     rect(100,100,200,200);  
   }
-  
