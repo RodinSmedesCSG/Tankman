@@ -19,4 +19,4 @@ class tank {
 }
 
 /* appelvanger H3 29
-Josti H2 28 */
+Josti H2 28 omschrijven */
