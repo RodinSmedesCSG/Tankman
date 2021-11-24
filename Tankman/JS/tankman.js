@@ -1,8 +1,7 @@
-let bg;
-
 function preload() {
   bg = loadImage ("images/background/achtergrond.png");
-  player = loadImage ("images/placeholder.gif");
+  tank = loadImage ("images/tanc.png");
+  player = loadImage ("images/tankman.png");
 }
 
 function setup() {
@@ -12,10 +11,11 @@ function setup() {
   canvas.parent('processing');
   noLoop();
 
-  player = new speler;
+  player = new Speler();
 }
 
 function draw() {
   background(bg);
   player.teken();
+  player.beweeg();
 }
