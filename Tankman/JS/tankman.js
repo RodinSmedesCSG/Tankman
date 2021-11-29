@@ -12,6 +12,7 @@ function setup() {
 
   player = new Speler(420,830);
   tank = new Tank();
+  kogels = new Kogel();
 }
 
 function draw() {
@@ -20,7 +21,16 @@ function draw() {
   tank.teken();
   player.teken();
   tank.vallen();
-
-
+  if (frameCount % 20 == 0) {
+    kogel.push(new Kogel());
+  }
   
+  for (let i = 0; i < kogel.length; i++) {
+    kogel[i].show();
+    kogel[i].beweeg();
+    kogel[i].death();
+    if (kogel[i].y == 380) {
+      scoreCount = scoreCount + 1;
+    }
+  }
 }
