@@ -12,9 +12,10 @@ class Speler {
     if (keyIsDown(RIGHT_ARROW)) {
     this.x += this.snelheid;
    }
+   this.x = constrain(this.x,80,750);
   }
 
   teken() {
-    image(tankman,420,830);
+    image(tankman,this.x,this.y);
   }
 }

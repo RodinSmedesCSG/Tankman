@@ -26,7 +26,7 @@ class Tank {
   }
 
   teken() {
-    image(attack,100,100);
+    image(attack,110,100,128,216);
   }
 
   vallen() {
