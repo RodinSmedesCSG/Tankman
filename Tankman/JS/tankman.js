@@ -13,7 +13,14 @@ function setup() {
   canvas.parent('processing');
   player = new Speler(420,830);
   tank = new Tank();
+
+  this.druppels = null;
+  this.moeilijkheidsGraad = null;
+  this.actief = false;
+  this.afgelopen = null;
 }
+
+
 
 function draw() {
   if (keyIsDown(ESCAPE)) {
@@ -23,9 +30,9 @@ function draw() {
     background(bg);
   }
   player.beweeg();
-  tank.teken();
+  tank.val();
   player.teken();
-  tank.vallen();
+  tank.teken();
 
   /* MUZIEK LATER FIXEN
   muziek1.loop = false;

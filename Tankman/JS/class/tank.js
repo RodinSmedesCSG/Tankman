@@ -2,22 +2,25 @@ let kogel = [];
 let punten = 0;
 
 class Tank {
-  constructor() {
-    this.d = 20; 
+  constructor(b) {
+    this.d = 20;
     this.x = random(this.d,canvas.width - this.d);
-    this.y = random(this.d,50);
-    this.beginSnelheid = null;
-    this.snelheid = (this.beginSnelheid + random(0,10)) / 10;
+    this.y = -this.d;
+    this.basisSnelheid = b;
+    this.snelheid = (this.basisSnelheid + random(0,10)) / 10;
+  }
+
+  val() {
+    this.y += this.snelheid;
   }
 
   teken() {
-    image(attack,110,100,128,216);
-  }
-
-  vallen() {
-    this.y += this.snelheid;
+    push();
+    image(attack,this.x,this.y,128,216);
+    pop();
   }
 }
+
 
 
 /* appelvanger H3 29
