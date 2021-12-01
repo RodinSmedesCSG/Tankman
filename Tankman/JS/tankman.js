@@ -13,11 +13,6 @@ function setup() {
   canvas.parent('processing');
   player = new Speler(420,830);
   tank = new Tank();
-
-  this.druppels = null;
-  this.moeilijkheidsGraad = null;
-  this.actief = false;
-  this.afgelopen = null;
 }
 
 
@@ -30,9 +25,9 @@ function draw() {
     background(bg);
   }
   player.beweeg();
-  tank.val();
-  player.teken();
   tank.teken();
+  player.teken();
+  tank.val();
 
   /* MUZIEK LATER FIXEN
   muziek1.loop = false;

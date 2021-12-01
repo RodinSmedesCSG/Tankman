@@ -6,7 +6,6 @@ class Speler {
     this.framenummer = 2;
     this.niveau = null;
     this.score = null;
-
     this.breedte = 100;
     this.hoogte = 50;
   }
@@ -21,10 +20,15 @@ class Speler {
     this.framenummer = 1;
    }
    this.x = constrain(this.x,80,750);
-
-   
   }
 
+
+  teken() {
+    image(tankmanL,this.x,this.y);
+  }
+}
+
+/*
   vang(druppel) {
     if (druppel.x > this.x && druppel.x < this.x + this.breedte && druppel.y > this.y && druppel.y < this.y + druppel.d) {
       druppel.y = canvas.height + druppel.d;
@@ -42,7 +46,6 @@ class Speler {
     }
   }
 
-
   teken() {
     image(tankman,this.x,this.y);
     push();
@@ -51,4 +54,4 @@ class Speler {
     rect(0,0,this.breedte,this.hoogte);
     pop();
   }
-}
+} */
