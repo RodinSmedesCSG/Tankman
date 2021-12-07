@@ -1,8 +1,16 @@
+var animatie = [];
+var frame;
+
 function preload() {
   bg = loadImage ("images/background/achtergrond.png");
   attack = loadImage ("images/tankPH2.png");
-  tankmanL = loadImage ("images/tankmanL.png");
-  tankmanR = loadImage ("images/tankmanR.png")
+
+  // Wit van poppetje aanpassen, ongelukkige kleur.
+  for (var b = 0; b < 3; b++) {
+    frame = loadImage ("images/sprites/tankman"+b+".png");
+    animatie.push(frame);
+  }
+
   meme = loadImage ("images/meme.jpg");
   muziek1 = loadSound("sounds/redsun.mp3");
 }
@@ -11,10 +19,10 @@ function setup() {
   canvas = createCanvas(961,969);
   background('grey');
   canvas.parent('processing');
-  player = new Speler(420,830);
+  player = new Speler(420,830,animatie);
   tank = new Tank();
+  tanks.push(new Tank());
 }
-
 
 
 function draw() {
@@ -29,19 +37,9 @@ function draw() {
   player.teken();
   tank.val();
 
-  /* MUZIEK LATER FIXEN
+  /* MUZIEK FIXEN
   muziek1.loop = false;
   muziek1.play();
   */
 
 }
-/* 
-
-function keyPressed() {
-  if (keyCode == ENTER) {
-
-        achtergrondmuziek.loop();
-    }
-  }
-}
- */

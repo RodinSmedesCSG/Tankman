@@ -1,8 +1,9 @@
+let tanks = [];
 class Tank {
   constructor(y) {
     this.x = random(80,750);
     this.y = 20;
-    this.snelheid = 3;
+    this.snelheid = random(2,4);
   }
 
   val() {
@@ -10,10 +11,15 @@ class Tank {
   }
 
   teken() {
-    for (var b = 0; b < 5; b++) {
-      image(attack,this.x,this.y,128,216);
+    for (var c = 0; c < tanks.length; c++) {
+      
+      tanks[c].zien 
     }
+  }
     //image(attack,this.x,this.y,128,216);
+  
+  zien(){
+    image(attack,this.x,this.y,128,216);
   }
 }
 

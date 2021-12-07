@@ -1,9 +1,10 @@
 class Speler {
-  constructor(x,y) {
+  constructor(x,y,animaties) {
     this.x = x;
     this.y = y;
+    this.animaties = animaties;
     this.snelheid = 5;
-    this.framenummer = 2;
+    this.nummer = 0;
     this.niveau = null;
     this.score = null;
     this.breedte = 100;
@@ -13,18 +14,19 @@ class Speler {
   beweeg() {
     if (keyIsDown(LEFT_ARROW)) {
     this.x -= this.snelheid;
-    this.framenummer = 2;
+    this.nummer = 1;
    }
     if (keyIsDown(RIGHT_ARROW)) {
     this.x += this.snelheid;
-    this.framenummer = 1;
+    this.nummer = 2;
    }
-   this.x = constrain(this.x,80,750);
+   // als niks ingedrukt maken dat hij naar voren kijkt
+   this.x = constrain(this.x,60,785);
   }
 
 
   teken() {
-    image(tankmanL,this.x,this.y);
+    image(this.animaties[this.nummer],this.x,this.y,128,128);
   }
 }
 
