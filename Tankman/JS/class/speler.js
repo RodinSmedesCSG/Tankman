@@ -1,5 +1,5 @@
 class Speler {
-  constructor(x,y,animaties) {
+  constructor(x, y, animaties) {
     this.x = x;
     this.y = y;
     this.animaties = animaties;
@@ -13,20 +13,25 @@ class Speler {
 
   beweeg() {
     if (keyIsDown(LEFT_ARROW)) {
-    this.x -= this.snelheid;
-    this.nummer = 1;
-   }
-    if (keyIsDown(RIGHT_ARROW)) {
-    this.x += this.snelheid;
-    this.nummer = 2;
-   }
-   // als niks ingedrukt maken dat hij naar voren kijkt
-   this.x = constrain(this.x,60,785);
+      this.x -= this.snelheid;
+      this.nummer = 1;
+    } else if (keyIsDown(RIGHT_ARROW)) {
+      this.x += this.snelheid;
+      this.nummer = 2;
+    }
+
+    this.x = constrain(this.x, 60, 785);
+  }
+
+  keyReleased() {
+    this.nummer = 0;
+    return false;
   }
 
 
   teken() {
-    image(this.animaties[this.nummer],this.x,this.y,128,128);
+    console.log(this.nummer);
+    image(this.animaties[this.nummer], this.x, this.y, 128, 128);
   }
 }
 
