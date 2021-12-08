@@ -10,7 +10,7 @@ class Speler {
     this.breedte = 100;
     this.hoogte = 50;
   }
-
+  
   beweeg() {
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= this.snelheid;
@@ -19,7 +19,6 @@ class Speler {
       this.x += this.snelheid;
       this.nummer = 2;
     }
-
     this.x = constrain(this.x, 60, 785);
   }
 
@@ -28,9 +27,7 @@ class Speler {
     return false;
   }
 
-
   teken() {
-    console.log(this.nummer);
     image(this.animaties[this.nummer], this.x, this.y, 128, 128);
   }
 }
