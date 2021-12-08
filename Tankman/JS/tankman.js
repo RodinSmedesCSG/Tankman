@@ -35,6 +35,9 @@ function mousePressed() {
   }
 }
 */
+
+
+
 function draw() {
   tanks.beginScherm();
   if (keyIsDown(ESCAPE)) {
@@ -47,7 +50,10 @@ function draw() {
   tank.teken();
   player.teken();
   tank.val();
+  player.raak(tank);
   player.keyReleased();
+//  spel.teken();
+//  spel.update();
 /*
   //MUZIEK FIXEN
   muziek1.loop = false;
