@@ -9,7 +9,7 @@ class Speler {
     this.breedte = 128;
     this.hoogte = 128;
   }
-  
+
   beweeg() {
     if (keyIsDown(LEFT_ARROW)) {
       this.x -= this.snelheid;
@@ -29,14 +29,12 @@ class Speler {
   teken() {
     image(this.animaties[this.nummer], this.x, this.y, 128, 128);
   }
-// jaag en prooi opdracht 24
-// Benaderen met hitboxes, kijken bij bluebird HS 3
+
   raak(tank) {
-    if (tank.x == this.x + this.breedte && tank.y == this.y + this.hoogte) {
-      tank.x = -1000; 
+    if (this.x >= tank.x - 96 && this.x <= tank.x + 96 && this.y >= tank.y - 128 && this.y <= tank.y + 128) {
+      tank.x = -1500;
       tank.y = height / 2;
       tank.snelheid = 0;
-      console.log(Ontvangen);
     }
     if (tank.y > canvas.height) {
       tank.x = -1000;

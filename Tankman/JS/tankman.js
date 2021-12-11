@@ -10,7 +10,7 @@ function preload() {
     animatie.push(frame);
   }
   meme = loadImage("images/meme.jpg");
-  muziek1 = loadSound("sounds/redsun.mp3");
+  muziek1 = createAudio("sounds/redsun.mp3");
 }
 
 function setup() {
@@ -19,27 +19,12 @@ function setup() {
   canvas.parent('processing');
   player = new Speler(420, 830, animatie);
   tank = new Tank();
-  tanks = new tankRegen();
-  //spel.nieuw();
+  spel = new tankRegen();
+  muziek1.loop();
 }
-/*
-function mousePressed() {
-  if (!spel.actief) {
-    spel.actief = true;
-    spel.tanks = [];
-  }
-  else {
-    if (spel.afgelopen) {
-      spel.nieuw();
-    }
-  }
-}
-*/
-
-
 
 function draw() {
-  tanks.beginScherm();
+  spel.beginScherm();
   if (keyIsDown(ESCAPE)) {
     background(meme);
   }
@@ -52,11 +37,6 @@ function draw() {
   tank.val();
   player.raak(tank);
   player.keyReleased();
-//  spel.teken();
-//  spel.update();
-/*
-  //MUZIEK FIXEN
-  muziek1.loop = false;
-  muziek1.play();
-*/
+  spel.teken();
+  spel.update();
 }
