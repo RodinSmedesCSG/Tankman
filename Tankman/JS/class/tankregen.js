@@ -40,31 +40,28 @@ class tankRegen {
         player.raak(this.tanks[d]);
       }
     }
-    //if (player.score <= 0) {
-      if (tank.y > 500) {
+    if (player.score <= 0) {
       this.afgelopen = true;
     }
   }
 
   tekenNiveauSpeler() {
     var tekst = 'tankman';
-    var plaatje = attack;
     push();
     fill(140);
-    stroke(20);
-    strokeWeight(10);
+    noStroke();
     textSize(40);
     textAlign(CENTER, CENTER);
     var hoogte = 100;
     var breedte = 100;
-    image(plaatje, (canvas.width - breedte) / 2, 10, breedte, hoogte);
+    image((canvas.width - breedte) / 2, 10, breedte, hoogte);
     text(tekst, 0, 0, canvas.width, canvas.height * 2 / 3);
     pop();
   }
 
   beginScherm() { //https://youtu.be/TgHhEzKlLb4
     push();
-    muziek1.volume(0.02);
+    muziek.volume(0.02);
     background(start);
     //fill(0, 139, 139, .8);
     //rect(0, 0, canvas.width, canvas.height);
@@ -72,7 +69,7 @@ class tankRegen {
     textSize(25);
     textStyle(BOLD);
     fill(0);
-    text("Tankman\n\nProbeer zoveel mogelijk tanks te ontwijken en stop de communisten!\n\nGebruik de pijltjestoetsen voor de besturing.\n\nDruk op 'h' voor hulp.\n\nKlik om het spel te starten.", 0, canvas.height / 4, canvas.width, canvas.height)
+    text("Tankman 坦克人\n\nProbeer zoveel mogelijk tanks te ontwijken en stop de communisten!\n\nGebruik de pijltjestoetsen voor de besturing.\n\nDruk op 'h' voor hulp.\n\nKlik om het spel te starten.", 0, canvas.height / 4, canvas.width, canvas.height)
     pop();
   }
 
@@ -80,11 +77,11 @@ class tankRegen {
     fill(0, 139, 139, .5);
     rect(0, 0, canvas.width, canvas.height);
     var tekst = "Je bent gepakt door de Chinese overheid 的笑容 ! \nJouw niveau: " + player.niveau + "\n\nKlik voor een nieuw spel.";
+    pop();
     push();
     textAlign(CENTER, CENTER);
     fill(0);
     text(tekst, 0, 0, canvas.width, canvas.height);
-    pop();
     this.tekenNiveauSpeler();
   }
 
@@ -107,7 +104,7 @@ class tankRegen {
         text(player.score + " levens (niveau: " + player.niveau + ")", 10, 30);
         player.teken();
         for (var d = 0; d < this.tanks.length; d++) {
-          this.tanks[d].teken(); //geen functie op moment vgm
+          this.tanks[d].teken(); 
         }
         pop();
       }

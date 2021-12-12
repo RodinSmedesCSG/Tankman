@@ -1,7 +1,7 @@
 class Tank {
   constructor() {
     this.x = random(80, 750);
-    this.y = 20;
+    this.y = -200;
     this.snelheid = random(2, 4);
   }
 

@@ -33,9 +33,7 @@ class Speler {
 
   raak(tank) {
     if (this.x >= tank.x - 96 && this.x <= tank.x + 96 && this.y >= tank.y - 128 && this.y <= tank.y + 128) {
-      tank.x = -1500;
-      tank.y = height / 2;
-      tank.snelheid = 0;
+      spel.afgelopen = true;
     }
     if (tank.y > canvas.height) {
       tank.x = -1000;
