@@ -8,9 +8,8 @@ class Speler {
     this.nummer = 0;
     this.breedte = 128;
     this.hoogte = 128;
-    this.niveau = null;
+    this.level = 0;
     this.score = 1;
-    this.niveau = 0;
   }
 
   beweeg() {
@@ -37,8 +36,11 @@ class Speler {
     if (this.x >= tank.x - 96 && this.x <= tank.x + 96 && this.y >= tank.y - 128 && this.y <= tank.y + 128) {
       spel.afgelopen = true;
     }
-    if (tank.y > canvas.height) {
-      this.score += 1;
+    if (tank.y > height) {
+      this.score++;
+      tank.x = -1000;
+      tank.y = height / 2;
+      tank.snelheid = 0;
     }
   }
 }

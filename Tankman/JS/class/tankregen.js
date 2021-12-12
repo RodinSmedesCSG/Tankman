@@ -13,7 +13,7 @@ class tankRegen {
     this.actief = false;
     this.afgelopen = false;
     player.score = 20;
-    player.niveau = 0;
+    player.level = 0;
     this.moeilijkheidsGraad = 5;
     this.tanks = [];
     for (var d = 0; d < 2; d++) {
@@ -45,7 +45,7 @@ class tankRegen {
     }
   }
 
-  tekenNiveauSpeler() {
+  tekenLevelSpeler() {
     var tekst = 'Tankman';
     var plaatje = eind;
     push();
@@ -54,11 +54,11 @@ class tankRegen {
     textSize(40);
     textAlign(CENTER, CENTER);
     var hoogte = 200;
-    var breedte = plaatje.width*hoogte/plaatje.height;
-    image(plaatje,(canvas.width - breedte) / 2,10,breedte,hoogte);
+    var breedte = plaatje.width * hoogte / plaatje.height;
+    image(plaatje, (canvas.width - breedte) / 2, 10, breedte, hoogte);
     fill(0);
     textSize(50);
-    text(tekst,0,0,canvas.width,canvas.height * 2/ 3);
+    text(tekst, 0, 0, canvas.width, canvas.height * 2 / 3);
     pop();
   }
 
@@ -79,13 +79,14 @@ class tankRegen {
   eindScherm() {
     fill(0, 139, 139, .5);
     rect(0, 0, canvas.width, canvas.height);
-    var tekst = "Je bent gepakt door de Chinese overheid 的笑容 ! \nJouw niveau: " + player.niveau + "\n\nKlik voor een nieuw spel.";
+    textSize(50);
+    var tekst = "Je bent gepakt door de Chinese overhei! \nJouw level: " + player.level + "\n\nKlik voor een nieuw spel.";
     pop();
     push();
     textAlign(CENTER, CENTER);
     fill(0);
     text(tekst, 0, 0, canvas.width, canvas.height);
-    this.tekenNiveauSpeler();
+    this.tekenLevelSpeler();
   }
 
   teken() {
@@ -104,13 +105,21 @@ class tankRegen {
         noStroke();
         fill('black');
         textSize(30);
-        text(player.score + " Score (niveau: " + player.niveau + ")", 10, 30);
+        text("Score: " + player.score + "\nLevel: " + player.level, 10, 30);
         player.teken();
         for (var d = 0; d < this.tanks.length; d++) {
-          this.tanks[d].teken(); 
+          this.tanks[d].teken();
         }
         pop();
       }
+    }
+  }
+
+  hulp() {
+    if (keyIsDown(72)) {
+      textSize(25);
+      text("Tip: ontwijk de tanks. \n Je beweegt met het linker en rechter pijltje");
+      textAlign(CENTER, TOP);
     }
   }
 
