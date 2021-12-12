@@ -7,11 +7,17 @@ var frame;
 
 function preload() {
   bg = loadImage("images/background/achtergrond.png");
+  // Door ons gemaakt
   start = loadImage("images/background/tiansquare.jpg");
+  // https://time.com/95642/tiananmen-square-china-anniversary/
   eind = loadImage("images/background/reclame.png");
+  // https://upload.wikimedia.org/wikipedia/commons/9/94/Chairman_Mao_is_the_Red_Sun_in_Our_Hearts%2C_People%27s_Republic_of_China%2C_1968%2C_lithograph_-_Jordan_Schnitzer_Museum_of_Art%2C_University_of_Oregon_-_Eugene%2C_Oregon_-_DSC09554.jpg
   attack = loadImage("images/tankPH2.png");
+  // https://www.dreamstime.com/stock-illustration-pixel-military-tank-top-video-game-image59174863
   tankman = loadImage("images/sprites/tankman0.png");
+  // Door ons gemaakt
   pooh = loadImage("images/sprites/pooh.png");
+  // Door ons gemaakt
   for (var b = 0; b < 3; b++) {
     frame = loadImage("images/sprites/tankman" + b + ".png");
     animatie.push(frame);

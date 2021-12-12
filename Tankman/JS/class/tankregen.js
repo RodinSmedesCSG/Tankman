@@ -8,7 +8,7 @@ class tankRegen {
   }
 
   maakRegen() {
-    if (frameCount % 100 == 0) {
+    if (frameCount % 50 == 1) {
       this.tanks.push(new Tank());
     }
   }
@@ -82,12 +82,12 @@ class tankRegen {
     fill(0, 139, 139, .5);
     rect(0, 0, canvas.width, canvas.height);
     textSize(50);
-    var tekst2 = "Je hebt gewonnen van de Chinese overheid!\n\nKlik voor een nieuw spel.";
+    var teksta = "Je hebt gewonnen van de Chinese overheid!\n\nKlik voor een nieuw spel.";
     pop();
     push();
     textAlign(CENTER, CENTER);
     fill(0);
-    text(tekst2, 0, 0, canvas.width, canvas.height);
+    text(teksta, 0, 0, canvas.width, canvas.height);
     this.tekenLevelSpeler();
   }
 
@@ -101,9 +101,6 @@ class tankRegen {
     else {
       if (this.afgelopen) {
         this.eindScherm();
-      }
-      if (this.gewonnen) {
-        this.winScherm();
       }
       else {
         push();
