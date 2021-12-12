@@ -1,24 +1,11 @@
 class tankRegen {
   constructor() {
     this.afgelopen = null;
-    this.highscore = 0;
+    this.gewonnen = null;
     this.level = null;
     this.moeilijkheidsGraad = 5;
     this.actief = false;
     this.tanks = null;
-  }
-
-
-  nieuw() {
-    this.actief = false;
-    this.afgelopen = false;
-    player.score = 20;
-    player.level = 0;
-    this.moeilijkheidsGraad = 5;
-    this.tanks = [];
-    for (var d = 0; d < 2; d++) {
-      this.tanks.push(new Tank(this.moeilijkheidsGraad));
-    }
   }
 
   maakRegen() {
@@ -43,6 +30,12 @@ class tankRegen {
     if (player.score <= 0) {
       this.afgelopen = true;
     }
+    if (player.score > 50) {
+      player.level = 2;
+    }
+    if (player.score >= 100) {
+      this.afgelopen = true;
+    }
   }
 
   tekenLevelSpeler() {
@@ -62,17 +55,15 @@ class tankRegen {
     pop();
   }
 
-  beginScherm() { //https://youtu.be/TgHhEzKlLb4
+  beginScherm() {
     push();
     muziek.volume(0.02);
     background(start);
-    //fill(0, 139, 139, .8);
-    //rect(0, 0, canvas.width, canvas.height);
     textAlign(CENTER, TOP);
     textSize(25);
     textStyle(BOLD);
     fill(0);
-    text("Tankman 坦克人\n\nProbeer zoveel mogelijk tanks te ontwijken en stop de communisten!\n\nGebruik de pijltjestoetsen voor de besturing.\n\nDruk op 'h' voor hulp.\n\nKlik om het spel te starten.", 0, canvas.height / 4, canvas.width, canvas.height)
+    text("Tankman\n\nJe bent een Chinese demonstrant op het Tiananmenplein in Peking op\n15 april 1989.\n\nProbeer zoveel mogelijk tanks te ontwijken en stop de communisten!\n\nGebruik de pijltjestoetsen voor de besturing.\n\nHet doel is om 100 tanks te ontwijken, succes!\n\nKlik om het spel te starten.", 0, canvas.height / 4, canvas.width, canvas.height)
     pop();
   }
 
@@ -80,12 +71,25 @@ class tankRegen {
     fill(0, 139, 139, .5);
     rect(0, 0, canvas.width, canvas.height);
     textSize(50);
-    var tekst = "Je bent gepakt door de Chinese overhei! \nJouw level: " + player.level + "\n\nKlik voor een nieuw spel.";
+    var tekst = "Je bent gepakt door de Chinese overheid!\n\nKlik voor een nieuw spel.";
     pop();
     push();
     textAlign(CENTER, CENTER);
     fill(0);
     text(tekst, 0, 0, canvas.width, canvas.height);
+    this.tekenLevelSpeler();
+  }
+
+  winScherm() {
+    fill(0, 139, 139, .5);
+    rect(0, 0, canvas.width, canvas.height);
+    textSize(50);
+    var tekst2 = "Je hebt gewonnen van de Chinese overheid!\n\nKlik voor een nieuw spel.";
+    pop();
+    push();
+    textAlign(CENTER, CENTER);
+    fill(0);
+    text(tekst2, 0, 0, canvas.width, canvas.height);
     this.tekenLevelSpeler();
   }
 
@@ -99,6 +103,9 @@ class tankRegen {
     else {
       if (this.afgelopen) {
         this.eindScherm();
+      }
+      if (this.gewonnen) {
+        this.winScherm();
       }
       else {
         push();
@@ -115,18 +122,12 @@ class tankRegen {
     }
   }
 
-  hulp() {
-    if (keyIsDown(72)) {
-      textSize(25);
-      text("Tip: ontwijk de tanks. \n Je beweegt met het linker en rechter pijltje");
-      textAlign(CENTER, TOP);
-    }
-  }
-
   nieuw() {
     this.actief = false;
     this.afgelopen = false;
-    this.level = 1;
+    this.gewonnen = false;
+    player.level = 1;
+    player.score = 1;
     this.tanks = [];
   }
 }

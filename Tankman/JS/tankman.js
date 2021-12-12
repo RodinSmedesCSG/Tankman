@@ -8,9 +8,10 @@ var frame;
 function preload() {
   bg = loadImage("images/background/achtergrond.png");
   start = loadImage("images/background/tiansquare.jpg");
-  eind = loadImage("images/background/reclame.png")
+  eind = loadImage("images/background/reclame.png");
   attack = loadImage("images/tankPH2.png");
-  tankman = loadImage("images/sprites/tankman0.png")
+  tankman = loadImage("images/sprites/tankman0.png");
+  pooh = loadImage("images/sprites/pooh.png");
   for (var b = 0; b < 3; b++) {
     frame = loadImage("images/sprites/tankman" + b + ".png");
     animatie.push(frame);
