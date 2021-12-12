@@ -3,15 +3,13 @@ class tankRegen {
     this.afgelopen = null;
     this.gewonnen = null;
     this.level = null;
-    this.moeilijkheidsGraad = 5;
     this.actief = false;
     this.tanks = null;
   }
 
   maakRegen() {
     if (frameCount % 100 == 0) {
-      this.moeilijkheidsGraad++;
-      this.tanks.push(new Tank(this.moeilijkheidsGraad));
+      this.tanks.push(new Tank());
     }
   }
 
