@@ -46,16 +46,19 @@ class tankRegen {
   }
 
   tekenNiveauSpeler() {
-    var tekst = 'tankman';
+    var tekst = 'Tankman';
+    var plaatje = eind;
     push();
     fill(140);
     noStroke();
     textSize(40);
     textAlign(CENTER, CENTER);
-    var hoogte = 100;
-    var breedte = 100;
-    image((canvas.width - breedte) / 2, 10, breedte, hoogte);
-    text(tekst, 0, 0, canvas.width, canvas.height * 2 / 3);
+    var hoogte = 200;
+    var breedte = plaatje.width*hoogte/plaatje.height;
+    image(plaatje,(canvas.width - breedte) / 2,10,breedte,hoogte);
+    fill(0);
+    textSize(50);
+    text(tekst,0,0,canvas.width,canvas.height * 2/ 3);
     pop();
   }
 
@@ -101,7 +104,7 @@ class tankRegen {
         noStroke();
         fill('black');
         textSize(30);
-        text(player.score + " levens (niveau: " + player.niveau + ")", 10, 30);
+        text(player.score + " Score (niveau: " + player.niveau + ")", 10, 30);
         player.teken();
         for (var d = 0; d < this.tanks.length; d++) {
           this.tanks[d].teken(); 
@@ -114,8 +117,6 @@ class tankRegen {
   nieuw() {
     this.actief = false;
     this.afgelopen = false;
-    player.score = 5;
-    player.niveau = 0;
     this.level = 1;
     this.tanks = [];
   }

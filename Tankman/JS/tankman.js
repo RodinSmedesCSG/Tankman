@@ -1,9 +1,14 @@
+/***********************************************************************************************************************
+***Er is een bug met P5 waardoor de muziek niet altijd afspeelt, herladen met CTRL + F5 en tijdens het loaden klikken***
+***********************************************************************************************************************/
+
 var animatie = [];
 var frame;
 
 function preload() {
   bg = loadImage("images/background/achtergrond.png");
   start = loadImage("images/background/tiansquare.jpg");
+  eind = loadImage("images/background/reclame.png")
   attack = loadImage("images/tankPH2.png");
   tankman = loadImage("images/sprites/tankman0.png")
   for (var b = 0; b < 3; b++) {
