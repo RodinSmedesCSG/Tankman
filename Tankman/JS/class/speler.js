@@ -4,10 +4,11 @@ class Speler {
     this.y = y;
     this.d = 20;
     this.animaties = animaties;
-    this.snelheid = 5;
+    this.snelheid = 3;
     this.nummer = 0;
     this.breedte = 128;
     this.hoogte = 128;
+    this.niveau = null;
   }
 
   beweeg() {
