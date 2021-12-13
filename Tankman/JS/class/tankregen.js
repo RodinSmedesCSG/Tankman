@@ -32,6 +32,9 @@ class tankRegen {
     }
     if (player.score >= 100 && this.afgelopen == false) {
       this.gewonnen = true;
+      muziek.volume(0);
+      oof.volume(0);
+      china.play();
     }
   }
 
@@ -54,7 +57,8 @@ class tankRegen {
 
   beginScherm() {
     push();
-    muziek.volume(0.02);
+    oof.volume(1);
+    muziek.volume(0.04);
     background(start);
     textAlign(CENTER, TOP);
     textSize(25);
@@ -142,7 +146,7 @@ class tankRegen {
     this.afgelopen = false;
     this.gewonnen = false;
     player.level = 1;
-    player.score = 99;
+    player.score = 1;
     this.tanks = [];
   }
 }

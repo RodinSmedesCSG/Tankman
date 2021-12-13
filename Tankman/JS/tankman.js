@@ -27,6 +27,8 @@ function preload() {
   // https://www.youtube.com/watch?v=vnxzf16_54Q
   oof = createAudio("sounds/oof.mp3");
   // https://www.youtube.com/watch?v=0T_NR2KY8uI
+  china = createAudio("sounds/china.mp3");
+  // https://youtu.be/kw9Z9ZSEHQQ
 }
 
 function setup() {

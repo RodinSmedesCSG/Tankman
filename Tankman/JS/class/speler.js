@@ -34,6 +34,7 @@ class Speler {
 
   raak(tank) {
     if (this.x >= tank.x - 96 && this.x <= tank.x + 96 && this.y >= tank.y - 128 && this.y <= tank.y + 128) {
+      oof.play()
       spel.afgelopen = true;
     }
     if (tank.y > height) {
