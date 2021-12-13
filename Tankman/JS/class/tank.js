@@ -6,14 +6,10 @@ class Tank {
   }
 
   val() {
-    /*
-    if (player.level == 1) {
-      this.y += random(2, 4);
-    }
-    if (player.level == 2) {
-      this.y += random(4, 5);
-    }*/
     this.y += this.snelheid;
+    if (spel.afgelopen) {
+      return player.score;
+    }
   }
 
   teken() {

@@ -22,8 +22,11 @@ function preload() {
     frame = loadImage("images/sprites/tankman" + b + ".png");
     animatie.push(frame);
   }
+  // Door ons gemaakt
   muziek = createAudio("sounds/redsun.mp3");
-  //Bron muziek: https://www.youtube.com/watch?v=vnxzf16_54Q
+  // https://www.youtube.com/watch?v=vnxzf16_54Q
+  oof = createAudio("sounds/oof.mp3");
+  // https://www.youtube.com/watch?v=0T_NR2KY8uI
 }
 
 function setup() {
@@ -44,7 +47,6 @@ function draw() {
 function mousePressed() {
   if (!spel.actief) {
     spel.actief = true;
-    spel.appels = [];
   }
   else {
     if (spel.afgelopen) {

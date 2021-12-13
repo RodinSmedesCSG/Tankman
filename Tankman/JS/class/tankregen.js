@@ -2,7 +2,6 @@ class tankRegen {
   constructor() {
     this.afgelopen = null;
     this.gewonnen = null;
-    this.level = null;
     this.actief = false;
     this.tanks = null;
   }
@@ -31,8 +30,8 @@ class tankRegen {
     if (player.score > 50) {
       player.level = 2;
     }
-    if (player.score >= 100) {
-      this.afgelopen = true;
+    if (player.score >= 100 && this.afgelopen == false) {
+      this.gewonnen = true;
     }
   }
 
@@ -82,13 +81,30 @@ class tankRegen {
     fill(0, 139, 139, .5);
     rect(0, 0, canvas.width, canvas.height);
     textSize(50);
-    var teksta = "Je hebt gewonnen van de Chinese overheid!\n\nKlik voor een nieuw spel.";
+    var teksta = "Je hebt gewonnen van de Chinese overheid!\nHet spel is nu uitgespeeld\nKlik om opnieuw te spelen.";
     pop();
     push();
     textAlign(CENTER, CENTER);
     fill(0);
     text(teksta, 0, 0, canvas.width, canvas.height);
-    this.tekenLevelSpeler();
+    this.tekenLevelSpelerA();
+  }
+
+  tekenLevelSpelerA() {
+    var tekst = 'Tankman';
+    var plaatje = eind;
+    push();
+    fill(140);
+    noStroke();
+    textSize(40);
+    textAlign(CENTER, CENTER);
+    var hoogte = 200;
+    var breedte = plaatje.width * hoogte / plaatje.height;
+    image(plaatje, (canvas.width - breedte) / 2, 10, breedte, hoogte);
+    fill(0);
+    textSize(50);
+    text(tekst, 0, 0, canvas.width, canvas.height * 2 / 3);
+    pop();
   }
 
   teken() {
@@ -99,20 +115,24 @@ class tankRegen {
       this.beginScherm();
     }
     else {
-      if (this.afgelopen) {
-        this.eindScherm();
-      }
-      else {
-        push();
-        noStroke();
-        fill('black');
-        textSize(30);
-        text("Score: " + player.score + "\nLevel: " + player.level, 10, 30);
-        player.teken();
-        for (var d = 0; d < this.tanks.length; d++) {
-          this.tanks[d].teken();
+      if (this.gewonnen) {
+        this.winScherm();
+      } else {
+        if (this.afgelopen) {
+          this.eindScherm();
         }
-        pop();
+        else {
+          push();
+          noStroke();
+          fill('black');
+          textSize(30);
+          text("Score: " + player.score + "\nLevel: " + player.level, 10, 30);
+          player.teken();
+          for (var d = 0; d < this.tanks.length; d++) {
+            this.tanks[d].teken();
+          }
+          pop();
+        }
       }
     }
   }
@@ -122,7 +142,7 @@ class tankRegen {
     this.afgelopen = false;
     this.gewonnen = false;
     player.level = 1;
-    player.score = 1;
+    player.score = 99;
     this.tanks = [];
   }
 }
